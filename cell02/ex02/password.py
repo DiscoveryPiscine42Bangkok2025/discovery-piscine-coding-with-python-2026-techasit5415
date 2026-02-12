@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 password = "Python is awesome"
 inputpass = input()
 
