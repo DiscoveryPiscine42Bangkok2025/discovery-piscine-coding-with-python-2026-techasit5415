@@ -1,5 +1,5 @@
+#!/usr/bin/env python3
 tablei = 0
-
 while tablei <= 10:
     print ("Table de", tablei, end=": ")
 

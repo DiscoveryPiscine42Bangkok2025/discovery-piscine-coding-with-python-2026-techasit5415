@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import re
 import sys
 
@@ -12,4 +13,4 @@ else:
     if found:
         print(len(found))
     else:
-        print("none")
+        print("none")   
