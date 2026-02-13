@@ -11,12 +11,18 @@ def checkmate(board_str: str) -> str:
     if any(len(line) != size for line in lines):
         return "Error"
 
-    # 2. Find King Position
-    k_pos = next(((r, c) for r, row in enumerate(lines) 
-                  for c, char in enumerate(row) if char == 'K'), None)
-    if not k_pos:
-        return "Error"
-    kr, kc = k_pos
+
+    # 2. Find King Positions (นับและเช็กจำนวน King)
+    # สร้าง List ของพิกัด (r, c) ทั้งหมดที่เจอ 'K'
+    k_positions = [(r, c) for r, row in enumerate(lines) 
+                for c, char in enumerate(row) if char == 'K']
+
+# ตรวจสอบว่าต้องมี King เพียงตัวเดียวเท่านั้น
+    if len(k_positions) != 1:
+        return "Error"  
+
+# ดึงพิกัดของ King ตัวเดียวที่มีอยู่มาใช้งาน
+    kr, kc = k_positions[0]
 
     # 3. Define Attack Patterns
     # ทิศทาง: (delta_row, delta_col) -> ชิ้นส่วนที่อันตรายในทิศนั้น
